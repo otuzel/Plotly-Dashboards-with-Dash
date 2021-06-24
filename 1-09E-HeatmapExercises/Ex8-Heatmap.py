@@ -9,20 +9,27 @@
 
 # Perform imports here:
 
-
+import plotly.offline as pyo
+import plotly.graph_objs as go
+import pandas as pd
 
 # Create a DataFrame from  "flights" data
-df = pd.read_csv('../data/flights.csv')
-
+df = pd.read_csv('data/flights.csv')
+print(df)
 # Define a data variable
 
+data = [
+  go.Heatmap(
+    x=df['year'],
+    y=df['month'],
+    z=df['passengers']
+  )
+]
 
+layout = go.Layout(
+  title='year comparison'
+)
 
+fig=go.Figure(data=data, layout=layout)
 
-
-
-# Define the layout
-
-
-
-# Create a fig from data and layout, and plot the fig
+pyo.plot(fig)

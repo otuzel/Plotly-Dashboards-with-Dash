@@ -6,27 +6,33 @@
 ######
 
 # Perform imports here:
+import pandas as pd
+import plotly.offline as pyo
+import plotly.graph_objs as go
+import numpy as np
+
+df = pd.read_csv('data/abalone.csv')
+print(df)
 
 
+data = [
+  go.Box(
+    y=np.random.choice(df['rings'], 100, replace=False),
+    name='Set 1'
+  ),
+  go.Box(
+    y=np.random.choice(df['rings'], 100, replace=False),
+    name='Set 2'
+  )
+]
 
+layout = go.Layout(
+  title='Comparison of random samples'
+)
 
+fig = go.Figure(data=data, layout=layout)
 
-# create a DataFrame from the .csv file:
-
-
-# take two random samples of different sizes:
-
-
-
-# create a data variable with two Box plots:
-
-
-
-
-
-
-
-
+pyo.plot(fig)
 
 
 
