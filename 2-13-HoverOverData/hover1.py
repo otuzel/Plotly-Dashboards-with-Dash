@@ -12,7 +12,7 @@ import json
 
 app = dash.Dash()
 
-df = pd.read_csv('../data/wheels.csv')
+df = pd.read_csv('data/wheels.csv')
 
 app.layout = html.Div([
     html.Div([
@@ -23,7 +23,7 @@ app.layout = html.Div([
                 go.Scatter(
                     x = df['color'],
                     y = df['wheels'],
-                    dy = 1,
+                    dy = 0.5,
                     mode = 'markers',
                     marker = {
                         'size': 12,
